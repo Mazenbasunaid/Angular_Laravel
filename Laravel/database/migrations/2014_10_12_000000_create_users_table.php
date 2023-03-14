@@ -20,12 +20,12 @@ return new class extends Migration
             $table->string('password');
             $table->string('first_name');
             $table->string('last_name');
-            $table->timestamp('dob');
-            $table->string('username');
-            $table->unsignedBigInteger('role_id');
+            $table->date('dob');
+            $table->string('username')->unique();
+            $table->bigInteger('role_id');
             $table->string('confirmation_code');
-            $table->timestamp('confirmation_expire');
-            $table->boolean('license_accepted');
+            $table->dateTime('confirmation_expire')->nullable();
+            $table->boolean('license_accepted')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
