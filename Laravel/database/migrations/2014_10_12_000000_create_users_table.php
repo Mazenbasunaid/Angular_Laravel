@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Database\Seeders\UserSeeder;
 
 return new class extends Migration
 {
@@ -22,13 +23,19 @@ return new class extends Migration
             $table->string('last_name');
             $table->date('dob');
             $table->string('username')->unique();
-            $table->bigInteger('role_id');
-            $table->string('confirmation_code');
-            $table->dateTime('confirmation_expire')->nullable();
+            $table->string('confirmation_code')->nullable();
+            $table->timestamp('confirmation_expire')->nullable();
             $table->boolean('license_accepted')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
+
+        //Boring syntax:
+        //$userSeeder = new UserSeeder();
+        //$userSeeder->run();
+
+        //Cool syntax:
+        (new UserSeeder())->run();
     }
 
     /**

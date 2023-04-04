@@ -24,7 +24,6 @@ class User extends Authenticatable
         'last_name',
         'dob',
         'username',
-        'role_id',
         'confirmation_code',
         'confirmation_expire',
         'license_accepted'
@@ -47,8 +46,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'dob' => 'datetime',
-        'role_id' => 'integer',
+        'dob' => 'date',
         'confirmation_expire' => 'datetime',
         'license_accepted' => 'boolean'
     ];
