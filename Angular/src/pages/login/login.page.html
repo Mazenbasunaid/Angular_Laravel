@@ -1,0 +1,52 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/login-image.jpg');">
+        <div class="filter"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                    <div class="card card-register">
+                        <h3 class="title">Welcome</h3>
+                        <form class="register-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <label>Email</label>
+                            <div class="input-group form-group-no-border">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="nc-icon nc-email-85"></i>
+                                    </span>
+                                </div>
+
+                                <input type="text" class="form-control" placeholder="Email" formControlName="username">
+                            </div>
+                            <div class="invalid-feedback" *ngIf="submitted && loginForm.controls.username.invalid">
+                                <span *ngIf="loginForm.controls.username.errors?.['required']">Username is required.</span>
+                                <span *ngIf="loginForm.controls.username.errors?.['minlength']">Username must be at least 3 characters long.</span>
+                            </div>
+                            <div class="invalid-feedback" *ngIf="invalidLogin">
+                                Username or password is invalid.
+                            </div>
+
+                            <label>Password</label>
+                            <div class="input-group form-group-no-border">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="nc-icon nc-key-25"></i>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Password"
+                                    formControlName="password">
+                            </div>
+                            <div class="invalid-feedback" *ngIf="submitted && loginForm.controls.password.invalid">
+                                Password is required.
+                            </div>
+                            <div class="invalid-feedback" *ngIf="invalidLogin">
+                                Username or password is invalid.
+                            </div>
+
+                            <button class="btn btn-danger btn-block btn-round">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
