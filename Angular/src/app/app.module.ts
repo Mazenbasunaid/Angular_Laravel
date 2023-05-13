@@ -9,24 +9,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { LoginPage } from 'src/pages/login/login.page';
 import { RegisterPage } from 'src/pages/register/register.page';
-import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from 'src/services/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePage,
     LoginPage,
-    NavbarComponent,
-    RegisterPage
+    RegisterPage,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    RouterModule
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

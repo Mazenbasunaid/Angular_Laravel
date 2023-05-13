@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Api\ResponseModel;
 use App\Models\Api\UserModel;
 use App\Models\User;
-use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
-use App\Services\RoleService;
 use App\Facades\Role;
 
 class UserController extends Controller

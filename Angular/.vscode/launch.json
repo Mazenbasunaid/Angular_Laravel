@@ -3,11 +3,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ng serve",
-      "type": "pwa-chrome",
-      "request": "launch",
-      "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+        "type": "chrome",
+        "preLaunchTask": "npm: start",
+        "request": "launch",
+        "runtimeArgs": ["--disable-web-security"],
+        "name": "Launch Chrome (No CORS)",
+        "url": "http://localhost:4200",
+        "webRoot": "${workspaceFolder}"
     },
     {
       "name": "ng test",

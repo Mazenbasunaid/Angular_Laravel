@@ -4,4 +4,6 @@ export interface UserModel {
     email : string;
     lang : string;
     license_accepted : boolean;
+    message: string;
+    state: string;
 }
