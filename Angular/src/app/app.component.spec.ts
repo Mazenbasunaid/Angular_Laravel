@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HomePage } from 'src/pages/home-page/home.page';
-import { LoginPage } from 'src/pages/login/login.page';
+import { LoginPage } from 'src/pages/login-page/login-page.component';
 import { RegisterPage } from 'src/pages/register/register.page';
 import { NavbarComponent } from 'src/components/navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';

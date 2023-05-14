@@ -4,8 +4,8 @@ import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'home-page',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.css']
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.css']
 })
 export class HomePage implements OnInit {
     public user? : UserModel;

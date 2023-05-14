@@ -6,8 +6,8 @@ import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'login-page',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.css']
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.css']
 })
 export class LoginPage implements OnInit {
     public user? : UserModel;
