@@ -6,9 +6,9 @@ import { UserModel } from 'src/models/UserModel';
 import { UserService } from 'src/services/user.service';
 
 @Component({
-    selector: 'register-page',
-    templateUrl: './register.page.html',
-    styleUrls: ['./register.page.css'],
+    selector: 'app-register-page',
+    templateUrl: './register-page.component.html',
+    styleUrls: ['./register-page.component.css'],
 })
 export class RegisterPage {
     public user?: UserModel;

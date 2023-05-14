@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NavbarComponent } from './navbar.component';
 import { UserService } from 'src/services/user.service';
 import { AppRoutingModule } from 'src/app/app-routing.module';

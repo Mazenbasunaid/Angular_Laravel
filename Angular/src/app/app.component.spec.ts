@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { HomePage } from 'src/pages/home-page/home.page';
-import { LoginPage } from 'src/pages/login-page/login-page.component';
-import { RegisterPage } from 'src/pages/register/register.page';
-import { NavbarComponent } from 'src/components/navbar/navbar.component';
+import { HomePage } from 'src/app/pages/home-page/home-page.component';
+import { LoginPage } from 'src/app/pages/login-page/login-page.component';
+import { RegisterPage } from 'src/app/pages/register-page/register-page.component';
+import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
