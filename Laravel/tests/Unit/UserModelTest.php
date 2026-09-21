@@ -22,7 +22,7 @@ class UserModelTest extends TestCase
             'first_name' => 'Test',
             'last_name' => 'Case',
             'username' => 'testcase',
-            'email' => 'testcase@sugar.com',
+            'email' => 'testcase@dentalclinic.test',
             'dob' => '1973-06-09',
             'license_accepted' => true
         ]);
@@ -32,7 +32,7 @@ class UserModelTest extends TestCase
 
         // Assert
         $this->assertInstanceOf(UserModel::class, $userResponseModel);
-        $this->assertEquals('testcase@sugar.com', $userResponseModel->email);
+        $this->assertEquals('testcase@dentalclinic.test', $userResponseModel->email);
         $this->assertEquals('Test Case', $userResponseModel->name);
         $this->assertEquals('1973-06-09', $userResponseModel->dob);
         $this->assertEquals(true, $userResponseModel->license_accepted);
@@ -48,7 +48,7 @@ class UserModelTest extends TestCase
             'first_name' => 'Test',
             'last_name' => 'Case',
             'username' => 'testcase',
-            'email' => 'testcase@sugar.com',
+            'email' => 'testcase@dentalclinic.test',
             'dob' => '9999-99-99',
             'license_accepted' => true
         ]);

@@ -15,10 +15,10 @@ class UserSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory()->create([
-            'first_name' => 'Big',
-            'last_name' => 'Daddy',
-            'username' => 'bigdaddy',
-            'email' => 'bigdaddy@sugar.com',
+            'first_name' => 'Jane',
+            'last_name' => 'Doe',
+            'username' => 'janedoe',
+            'email' => 'jane.doe@dentalclinic.test',
             'dob' => '1973-06-09',
             'license_accepted' => true
         ]);
