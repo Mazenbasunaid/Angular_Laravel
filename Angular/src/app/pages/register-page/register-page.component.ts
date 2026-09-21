@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterRequestModel } from 'src/models/RegisterRequestModel';
 import { UserModel } from 'src/models/UserModel';
@@ -9,6 +9,8 @@ import { UserService } from 'src/services/user.service';
     selector: 'app-register-page',
     templateUrl: './register-page.component.html',
     styleUrls: ['./register-page.component.css'],
+    standalone: true,
+    imports: [ReactiveFormsModule]
 })
 export class RegisterPage {
     public user?: UserModel;

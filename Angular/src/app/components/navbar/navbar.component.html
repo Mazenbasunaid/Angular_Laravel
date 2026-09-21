@@ -1,9 +1,12 @@
 <nav class="navbar">
-  <a class="navbar-brand" href="#">Dental Clinic</a>
+  <a class="navbar-brand" routerLink="/">Dental Clinic</a>
   <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home</a>
-      <a class="nav-item nav-link" href="#">Services</a>
-      <a class="nav-item nav-link" href="#">About Us</a>
-      <a class="nav-item nav-link" href="#">Contact</a>
+    @if (navUser?.state === 'success') {
+      <span>Hello, {{ navUser.name }}</span>
+      <a class="nav-item nav-link" role="button" (click)="logout.emit()">Log out</a>
+    } @else {
+      <a class="nav-item nav-link" routerLink="/login">Login</a>
+      <a class="nav-item nav-link" routerLink="/register">Register</a>
+    }
   </div>
 </nav>

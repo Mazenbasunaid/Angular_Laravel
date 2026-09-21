@@ -5,7 +5,7 @@ import { UserModel } from 'src/models/UserModel';
 import { LoginRequestModel } from 'src/models/LoginRequestModel';
 import { RegisterRequestModel } from 'src/models/RegisterRequestModel';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class UserService {
     constructor(private http: HttpClient) {}
 

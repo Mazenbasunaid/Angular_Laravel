@@ -1,20 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
-import { HomePage } from './home.page';
-import { UserService } from 'src/services/user.service';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from 'src/components/navbar/navbar.component';
+import { HomePage } from './home-page.component';
 
-describe('HomePageComponent', () => {
+describe('HomePage', () => {
   let component: HomePage;
   let fixture: ComponentFixture<HomePage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomePage, NavbarComponent ],
-      providers: [ UserService ],
-      imports: [ AppRoutingModule, HttpClientModule ]
+      imports: [ HomePage ],
+      providers: [
+        provideRouter([]),
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
     })
     .compileComponents();
 

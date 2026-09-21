@@ -1,142 +1,198 @@
 <div class="wrapper">
-    <div class="page-header" style="background-image: url('./assets/img/login-image.jpg');">
-        <div class="filter"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
-                    <div class="card card-register">
-                        <h3 class="title">Welcome</h3>
-                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                            <label>Email</label>
-                            <div class="input-group form-group-no-border">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="nc-icon nc-email-85"></i>
-                                    </span>
-                                </div>
-
-                                <input type="text" class="form-control" placeholder="Email" formControlName="email">
-                            </div>
-                            <div class="invalid-feedback" *ngIf="submitted && registerForm.controls['email'].invalid">
-                                <span *ngIf="registerForm.controls['email'].errors?.['required']">Email is required.</span>
-                                <span *ngIf="registerForm.controls['email'].errors?.['email']">Email address has an incorrect format.</span>
-                            </div>
-                            <div class="invalid-feedback" *ngIf="invalidRegister">
-                                Part(s) of the form are invalid.
-                            </div>
-
-                            <label>Username</label>
-                            <div class="input-group form-group-no-border">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="nc-icon nc-single-02"></i>
-                                    </span>
-                                </div>
-
-                                <input type="text" class="form-control" placeholder="Username" formControlName="username">
-                            </div>
-                            <div class="invalid-feedback" *ngIf="submitted && registerForm.controls['username'].invalid">
-                                <span *ngIf="registerForm.controls['username'].errors?.['required']">Username is required.</span>
-                                <span *ngIf="registerForm.controls['username'].errors?.['minlength']">Username must be at least 3 characters long.</span>
-                                <span *ngIf="registerForm.controls['username'].errors?.['maxlength']">Username must not exceed 20 characters.</span>
-                            </div>
-                            <div class="invalid-feedback" *ngIf="invalidRegister">
-                                Part(s) of the form are invalid.
-                            </div>
-
-                            <label>First name</label>
-                            <div class="input-group form-group-no-border">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="nc-icon nc-single-02"></i>
-                                    </span>
-                                </div>
-
-                                <input type="text" class="form-control" placeholder="John" formControlName="fname">
-                            </div>
-                            <div class="invalid-feedback" *ngIf="submitted && registerForm.controls['fname'].invalid">
-                                <span *ngIf="registerForm.controls['fname'].errors?.['required']">First name is required.</span>
-                            </div>
-                            <div class="invalid-feedback" *ngIf="invalidRegister">
-                                Part(s) of the form are invalid.
-                            </div>
-
-                            <label>Last name</label>
-                            <div class="input-group form-group-no-border">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="nc-icon nc-single-02"></i>
-                                    </span>
-                                </div>
-
-                                <input type="text" class="form-control" placeholder="John" formControlName="lname">
-                            </div>
-                            <div class="invalid-feedback" *ngIf="submitted && registerForm.controls['lname'].invalid">
-                                <span *ngIf="registerForm.controls['lname'].errors?.['required']">Last name is required.</span>
-                            </div>
-                            <div class="invalid-feedback" *ngIf="invalidRegister">
-                                Part(s) of the form are invalid.
-                            </div>
-
-                            <label>Password</label>
-                            <div class="input-group form-group-no-border">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="nc-icon nc-key-25"></i>
-                                    </span>
-                                </div>
-                                <input type="password" class="form-control" placeholder="Password"
-                                    formControlName="password">
-                            </div>
-                            <div class="invalid-feedback" *ngIf="submitted && (registerForm.controls['confirm'].invalid || registerForm.errors?.['confirm'])">
-                                <span *ngIf="registerForm.controls['password'].errors?.['required']">Password is required.</span>
-                                <span *ngIf="registerForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters long.</span>
-                                <span *ngIf="!registerForm.controls['password'].errors && registerForm.errors?.['confirm']">Password and confirmtion must match.</span>
-                            </div>
-                            <div class="invalid-feedback" *ngIf="invalidRegister">
-                                Part(s) of the form are invalid.
-                            </div>
-
-                            <label>Password confirmation</label>
-                            <div class="input-group form-group-no-border">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="nc-icon nc-key-25"></i>
-                                    </span>
-                                </div>
-                                <input type="password" class="form-control" placeholder="Password"
-                                    formControlName="confirm">
-                            </div>
-                            <div class="invalid-feedback" *ngIf="submitted && (registerForm.controls['confirm'].invalid || registerForm.errors?.['confirm'])">
-                                <span *ngIf="registerForm.controls['confirm'].errors?.['required']">Password is required.</span>
-                                <span *ngIf="registerForm.controls['confirm'].errors?.['minlength']">Password must be at least 6 characters long.</span>
-                                <span *ngIf="!registerForm.controls['confirm'].errors && registerForm.errors?.['confirm']">Password and confirmtion must match.</span>
-                            </div>
-                            <div class="invalid-feedback" *ngIf="invalidRegister">
-                                Part(s) of the form are invalid.
-                            </div>
-
-                            <label>Date of birth</label>
-                            <div class="input-group form-group-no-border">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="nc-icon nc-single-02"></i>
-                                    </span>
-                                </div>
-                                <input type="date" class="form-control" formControlName="dob">
-                            </div>
-                            <div class="invalid-feedback" *ngIf="submitted && registerForm.controls['dob'].invalid">
-                                <span *ngIf="registerForm.controls['dob'].errors?.['required']">Date of birth is required.</span>
-                            </div>
-                            <div class="invalid-feedback" *ngIf="invalidRegister">
-                                Part(s) of the form are invalid.
-                            </div>
-
-                            <button class="btn btn-danger btn-block btn-round">Login</button>
-                        </form>
-                    </div>
+  <div class="page-header" style="background-image: url('./assets/img/login-image.jpg');">
+    <div class="filter"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+          <div class="card card-register">
+            <h3 class="title">Welcome</h3>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <label>Email</label>
+              <div class="input-group form-group-no-border">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-email-85"></i>
+                  </span>
                 </div>
+
+                <input type="text" class="form-control" placeholder="Email" formControlName="email">
+              </div>
+              @if (submitted && registerForm.controls['email'].invalid) {
+                <div class="invalid-feedback">
+                  @if (registerForm.controls['email'].errors?.['required']) {
+                    <span>Email is required.</span>
+                  }
+                  @if (registerForm.controls['email'].errors?.['email']) {
+                    <span>Email address has an incorrect format.</span>
+                  }
+                </div>
+              }
+              @if (invalidRegister) {
+                <div class="invalid-feedback">
+                  Part(s) of the form are invalid.
+                </div>
+              }
+
+              <label>Username</label>
+              <div class="input-group form-group-no-border">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-single-02"></i>
+                  </span>
+                </div>
+
+                <input type="text" class="form-control" placeholder="Username" formControlName="username">
+              </div>
+              @if (submitted && registerForm.controls['username'].invalid) {
+                <div class="invalid-feedback">
+                  @if (registerForm.controls['username'].errors?.['required']) {
+                    <span>Username is required.</span>
+                  }
+                  @if (registerForm.controls['username'].errors?.['minlength']) {
+                    <span>Username must be at least 3 characters long.</span>
+                  }
+                  @if (registerForm.controls['username'].errors?.['maxlength']) {
+                    <span>Username must not exceed 20 characters.</span>
+                  }
+                </div>
+              }
+              @if (invalidRegister) {
+                <div class="invalid-feedback">
+                  Part(s) of the form are invalid.
+                </div>
+              }
+
+              <label>First name</label>
+              <div class="input-group form-group-no-border">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-single-02"></i>
+                  </span>
+                </div>
+
+                <input type="text" class="form-control" placeholder="John" formControlName="fname">
+              </div>
+              @if (submitted && registerForm.controls['fname'].invalid) {
+                <div class="invalid-feedback">
+                  @if (registerForm.controls['fname'].errors?.['required']) {
+                    <span>First name is required.</span>
+                  }
+                </div>
+              }
+              @if (invalidRegister) {
+                <div class="invalid-feedback">
+                  Part(s) of the form are invalid.
+                </div>
+              }
+
+              <label>Last name</label>
+              <div class="input-group form-group-no-border">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-single-02"></i>
+                  </span>
+                </div>
+
+                <input type="text" class="form-control" placeholder="John" formControlName="lname">
+              </div>
+              @if (submitted && registerForm.controls['lname'].invalid) {
+                <div class="invalid-feedback">
+                  @if (registerForm.controls['lname'].errors?.['required']) {
+                    <span>Last name is required.</span>
+                  }
+                </div>
+              }
+              @if (invalidRegister) {
+                <div class="invalid-feedback">
+                  Part(s) of the form are invalid.
+                </div>
+              }
+
+              <label>Password</label>
+              <div class="input-group form-group-no-border">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-key-25"></i>
+                  </span>
+                </div>
+                <input type="password" class="form-control" placeholder="Password"
+                  formControlName="password">
+                </div>
+                @if (submitted && (registerForm.controls['confirm'].invalid || registerForm.errors?.['confirm'])) {
+                  <div class="invalid-feedback">
+                    @if (registerForm.controls['password'].errors?.['required']) {
+                      <span>Password is required.</span>
+                    }
+                    @if (registerForm.controls['password'].errors?.['minlength']) {
+                      <span>Password must be at least 6 characters long.</span>
+                    }
+                    @if (!registerForm.controls['password'].errors && registerForm.errors?.['confirm']) {
+                      <span>Password and confirmtion must match.</span>
+                    }
+                  </div>
+                }
+                @if (invalidRegister) {
+                  <div class="invalid-feedback">
+                    Part(s) of the form are invalid.
+                  </div>
+                }
+
+                <label>Password confirmation</label>
+                <div class="input-group form-group-no-border">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="nc-icon nc-key-25"></i>
+                    </span>
+                  </div>
+                  <input type="password" class="form-control" placeholder="Password"
+                    formControlName="confirm">
+                  </div>
+                  @if (submitted && (registerForm.controls['confirm'].invalid || registerForm.errors?.['confirm'])) {
+                    <div class="invalid-feedback">
+                      @if (registerForm.controls['confirm'].errors?.['required']) {
+                        <span>Password is required.</span>
+                      }
+                      @if (registerForm.controls['confirm'].errors?.['minlength']) {
+                        <span>Password must be at least 6 characters long.</span>
+                      }
+                      @if (!registerForm.controls['confirm'].errors && registerForm.errors?.['confirm']) {
+                        <span>Password and confirmtion must match.</span>
+                      }
+                    </div>
+                  }
+                  @if (invalidRegister) {
+                    <div class="invalid-feedback">
+                      Part(s) of the form are invalid.
+                    </div>
+                  }
+
+                  <label>Date of birth</label>
+                  <div class="input-group form-group-no-border">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="nc-icon nc-single-02"></i>
+                      </span>
+                    </div>
+                    <input type="date" class="form-control" formControlName="dob">
+                  </div>
+                  @if (submitted && registerForm.controls['dob'].invalid) {
+                    <div class="invalid-feedback">
+                      @if (registerForm.controls['dob'].errors?.['required']) {
+                        <span>Date of birth is required.</span>
+                      }
+                    </div>
+                  }
+                  @if (invalidRegister) {
+                    <div class="invalid-feedback">
+                      Part(s) of the form are invalid.
+                    </div>
+                  }
+
+                  <button class="btn btn-danger btn-block btn-round">Login</button>
+                </form>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>

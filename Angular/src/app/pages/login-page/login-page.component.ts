@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserModel } from 'src/models/UserModel';
 import { UserService } from 'src/services/user.service';
 
 @Component({
-  selector: 'login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+    selector: 'login-page',
+    templateUrl: './login-page.component.html',
+    styleUrls: ['./login-page.component.css'],
+    standalone: true,
+    imports: [ReactiveFormsModule]
 })
 export class LoginPage implements OnInit {
     public user? : UserModel;

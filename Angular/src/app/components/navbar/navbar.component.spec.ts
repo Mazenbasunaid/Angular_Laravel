@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { NavbarComponent } from './navbar.component';
-import { UserService } from 'src/services/user.service';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { UserModel } from 'src/models/UserModel';
 
 describe('NavbarComponent', () => {
@@ -11,9 +9,8 @@ describe('NavbarComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [NavbarComponent],
-            providers: [UserService],
-            imports: [AppRoutingModule, HttpClientModule],
+            imports: [NavbarComponent],
+            providers: [provideRouter([])],
         }).compileComponents();
 
         fixture = TestBed.createComponent(NavbarComponent);
@@ -26,7 +23,7 @@ describe('NavbarComponent', () => {
     });
 
     it('should show correct info with a logged in user', () => {
-        // Assert
+        // Arrange
         const user : UserModel = {
             email: 'not@important.data',
             dob: '2000-01-01',
@@ -50,8 +47,8 @@ describe('NavbarComponent', () => {
         expect(navLinks[0]?.textContent).toContain('Log out');
     });
 
-    it('should show correct info with a logged in user', () => {
-        // Assert
+    it('should show login and register links when logged out', () => {
+        // Arrange
         fixture = TestBed.createComponent(NavbarComponent);
 
         // Act
@@ -63,5 +60,31 @@ describe('NavbarComponent', () => {
         expect(navLinks).toHaveSize(2);
         expect(navLinks[0]?.textContent).toContain('Login');
         expect(navLinks[1]?.textContent).toContain('Register');
+    });
+
+    it('should emit logout when the log out link is clicked', () => {
+        // Arrange
+        const user : UserModel = {
+            email: 'not@important.data',
+            dob: '2000-01-01',
+            lang: 'en-US',
+            license_accepted: true,
+            name: 'Bob',
+            state: 'success',
+            message: ''
+        };
+        fixture = TestBed.createComponent(NavbarComponent);
+        fixture.componentInstance.navUser = user;
+        fixture.detectChanges();
+
+        let emitted = false;
+        fixture.componentInstance.logout.subscribe(() => emitted = true);
+
+        // Act
+        const compiled = fixture.nativeElement as HTMLElement;
+        (compiled.querySelector('.nav-link') as HTMLElement)?.click();
+
+        // Assert
+        expect(emitted).toBeTrue();
     });
 });
